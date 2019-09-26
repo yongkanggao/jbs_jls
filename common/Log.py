@@ -4,7 +4,7 @@ from logging.handlers import TimedRotatingFileHandler
 from common import getpathInfo
 
 path = getpathInfo.get_Path()
-log_path = os.path.join(path, 'report')  # 存放log文件的路径
+log_path = os.path.join(path, 'log')  # 存放log文件的路径
 
 
 class Logger(object):
