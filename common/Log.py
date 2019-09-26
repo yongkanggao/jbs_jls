@@ -1,10 +1,10 @@
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
-import getpathInfo
+from common import getpathInfo
 
 path = getpathInfo.get_Path()
-log_path = os.path.join(path, 'result')  # 存放log文件的路径
+log_path = os.path.join(path, 'report')  # 存放log文件的路径
 
 
 class Logger(object):
@@ -52,7 +52,7 @@ logger = Logger().get_logger()
 #     def __init__(self):
 #         global logPath, resultPath, proDir
 #         proDir = readConfig.proDir
-#         resultPath = os.path.join(proDir, "result")
+#         resultPath = os.path.join(proDir, "report")
 #         if not os.path.exists(resultPath):
 #             os.mkdir(resultPath)
 #         logPath = os.path.join(resultPath, str(datetime.now().strftime("%Y%m%d%H%M%S")))
@@ -109,21 +109,21 @@ logger = Logger().get_logger()
 #
 #     def get_result_path(self):
 #         """
-#         get test result path
+#         get test report path
 #         :return:
 #         """
 #         return logPath
 #
-#     def write_result(self, result):
+#     def write_result(self, report):
 #         """
 #
-#         :param result:
+#         :param report:
 #         :return:
 #         """
 #         result_path = os.path.join(logPath, "report.txt")
 #         fb = open(result_path, "wb")
 #         try:
-#             fb.write(result)
+#             fb.write(report)
 #         except FileNotFoundError as ex:
 #             logger.error(str(ex))
 #

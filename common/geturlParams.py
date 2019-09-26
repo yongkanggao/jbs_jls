@@ -1,4 +1,4 @@
-import readConfig as readConfig
+from common import readConfig as readConfig
 
 readconfig = readConfig.ReadConfig()
 

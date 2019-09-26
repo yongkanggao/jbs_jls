@@ -1,5 +1,5 @@
 import os
-import getpathInfo# 自己定义的内部类，该类返回项目的绝对路径
+from common import getpathInfo
 #调用读Excel的第三方库xlrd
 from xlrd import open_workbook
 # 拿到该项目所在的绝对路径

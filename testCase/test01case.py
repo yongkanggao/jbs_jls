@@ -2,10 +2,9 @@ import json
 import unittest
 from common.configHttp import RunMain
 import paramunittest
-import geturlParams
+from common import geturlParams, readExcel
 import urllib.parse
 # import pythoncom
-import readExcel
 # pythoncom.CoInitialize()
 
 url = geturlParams.geturlParams().get_Url()# 调用我们的geturlParams获取我们拼接的URL
@@ -49,7 +48,7 @@ class testUserLogin(unittest.TestCase):
 
     def checkResult(self):# 断言
         """
-        check test result
+        check test report
         :return:
         """
         url1 = "http://www.xxx.com/login?"
