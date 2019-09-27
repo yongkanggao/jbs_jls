@@ -16,7 +16,7 @@ logger = logger
 class send_email():
     def outlook(self):
         olook = win32.Dispatch("%s.Application" % app)
-        mail = olook.CreateItem(win32.constants.olMailItem)
+        mail = olook.CreateItem(0)
         mail.To = addressee # 收件人
         mail.CC = cc # 抄送
         mail.Subject = str(datetime.datetime.now())[0:19]+'%s' %subject#邮件主题

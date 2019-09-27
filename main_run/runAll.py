@@ -36,7 +36,7 @@ class AllTest:#定义一个类AllTest
 
     def set_case_suite(self):
         """
-
+        循环遍历测试用例
         :return:
         """
         self.set_case_list()#通过set_case_list()拿到caselist元素组
