@@ -3,7 +3,7 @@ import configparser
 from common import getpathInfo
 
 path = getpathInfo.get_Path()#调用实例化，
-config_path = os.path.join(path, 'config.ini')#这句话是在path路径下再加一级
+config_path = os.path.join(path, 'common/config.ini')#这句话是在path路径下再加一级
 config = configparser.ConfigParser()#调用外部的读取配置文件的方法
 config.read(config_path, encoding='utf-8')
 
