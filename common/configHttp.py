@@ -25,13 +25,12 @@ class RunMain():
             logger.info(str(result))
         elif method == 'get':
             result = self.send_get(url, data)
-            data = json.loads(result.text)
+            #data = json.loads(result.text)
             logger.info(str(result))
-            logger.info()
         else:
             print("method值错误！！！")
             logger.info("method值错误！！！")
         return result
 if __name__ == '__main__':#通过写死参数，来验证我们写的请求是否正确
-    result = RunMain().run_main('get', 'http://192.168.1.199:10007/task/tasks', 'login_user=1342&page_num=1&page_size=10&status=0')
+    result = RunMain().run_main('get', 'http://192.168.1.198:10007/task/tasks', 'login_user=1342&page_num=1&page_size=10&status=0')
     print(result)

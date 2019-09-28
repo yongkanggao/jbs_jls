@@ -7,8 +7,9 @@ import unittest
 from common.configHttp import RunMain
 import paramunittest
 from common import geturlParams, readExcel
+from common.Log import logger
 
-
+logger = logger
 url = geturlParams.geturlParams().get_Url()# 调用我们的geturlParams获取我们拼接的URL
 taskList_xls = readExcel.readExcel().get_xls('case.xlsx','task')
 
@@ -54,11 +55,12 @@ class testTaskList(unittest.TestCase):
         :return:
         """
         get_url = url +self.path
-        info = RunMain().run_main(self.method, get_url, self.query)# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
-        data = json.loads(info.text)
+        req = RunMain().run_main(self.method, get_url, self.query)# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
+        data = json.loads(req.text)
         res = json.dumps(data,ensure_ascii=False,indent=1)
-        self.assertEqual(info.status_code,200)
+        self.assertEqual(req.status_code,200)
         self.assertEqual(data['code'],"Joybos.2112")
+        logger.info(str(req))
         # print(data)
         return  res
 
