@@ -1,0 +1,36 @@
+
+2019-09-27 17:06:29,182 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:06:29,434 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:06:29,685 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:06:29,937 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:06:30,188 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:08:50,963 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:08:51,208 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:08:51,457 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:08:51,744 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:08:51,998 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:10,578 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:10,831 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:11,062 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:11,319 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:11,582 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:39,929 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:40,174 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:40,419 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:40,668 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:09:40,917 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:10:09,783 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:10:10,031 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:10:10,272 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:10:10,519 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:10:10,751 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:08,469 - logs.txt - INFO - resultPathD:\workspace\jbs_jls\report\report.html
+2019-09-27 17:12:08,469 - logs.txt - INFO - caseListFileD:\workspace\jbs_jls\caselist.txt
+2019-09-27 17:12:08,469 - logs.txt - INFO - caseList[]
+2019-09-27 17:12:08,936 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:09,188 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:09,442 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:09,701 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:09,958 - logs.txt - INFO - <Response [200]>
+2019-09-27 17:12:10,006 - logs.txt - INFO - send email ok!!!!
+2019-09-27 17:13:52,248 - logs.txt - INFO - <Response [200]>
