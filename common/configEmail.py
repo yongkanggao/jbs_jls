@@ -4,7 +4,6 @@ import datetime
 from common import getpathInfo, readConfig
 from common.Log import logger
 
-
 read_conf = readConfig.ReadConfig()
 subject = read_conf.get_email('subject')#从配置文件中读取，邮件主题
 app = str(read_conf.get_email('app'))#从配置文件中读取，邮件类型
@@ -22,7 +21,7 @@ class send_email():
         mail.Subject = str(datetime.datetime.now())[0:19]+'%s' %subject#邮件主题
         mail.Attachments.Add(mail_path, 1, 1, "myFile")
         content = """
-                    执行测试中……
+                     执行测试中……
                     测试已完成！！
                     生成报告中……
                     报告已生成……
@@ -32,7 +31,6 @@ class send_email():
         mail.Send()
         print('send email ok!!!!')
         logger.info('send email ok!!!!')
-
 
 if __name__ == '__main__':# 运营此文件来验证写的send_email是否正确
     print(subject)

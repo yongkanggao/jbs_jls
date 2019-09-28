@@ -15,6 +15,9 @@ taskList_xls = readExcel.readExcel().get_xls('case.xlsx','task')
 
 @paramunittest.parametrized(*taskList_xls)
 class testTaskList(unittest.TestCase):
+    """
+    任务列表！
+    """
     def setParameters(self, case_name, path, query, method):
         """
         set params
@@ -29,27 +32,17 @@ class testTaskList(unittest.TestCase):
         self.query = str(query)
         self.method = str(method)
 
-    def description(self):
-        """
-        test report description
-        :return:
-        """
-        self.case_name
-
     def setUp(self):
         """
 
         :return:
         """
-        print(self.case_name+"测试开始前准备")
-
-    def taskList(self):
-        self.test_checkResult()
+        print(self.case_name + ":\n测试开始前准备")
 
     def tearDown(self):
         print("测试结束，输出log完结\n\n")
 
-    def test_checkResult(self):# 断言
+    def test_checkResult(self):
         """
         check test report
         :return:
@@ -58,10 +51,27 @@ class testTaskList(unittest.TestCase):
         req = RunMain().run_main(self.method, get_url, self.query)# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
         data = json.loads(req.text)
         res = json.dumps(data,ensure_ascii=False,indent=1)
-        self.assertEqual(req.status_code,200)
-        self.assertEqual(data['code'],"Joybos.2112")
-        logger.info(str(req))
-        # print(data)
+        if self.case_name == "进行中任务列表显示":
+            self.assertEqual(req.status_code,200)
+            self.assertEqual(data['code'],"Joybos.2112")
+            #self.axiao
+        if self.case_name == "进行中任务筛选_标题":
+            self.assertEqual(req.status_code, 200)
+            self.assertEqual(data['code'], "Joybos.2112")
+        if self.case_name == "进行中任务筛选_角色":
+            self.assertEqual(req.status_code, 200)
+            self.assertEqual(data['code'], "Joybos.2112")
+        if self.case_name == "进行中任务筛选_进度":
+            self.assertEqual(req.status_code, 200)
+            self.assertEqual(data['code'], "Joybos.2112")
+        if self.case_name == "进行中任务筛选_时间":
+            self.assertEqual(req.status_code, 200)
+            self.assertEqual(data['code'], "Joybos.2112")
+
+        logger.info(req)
+        logger.info(str(self.case_name))
+        logger.info(data)
+        #print(data)
         return  res
 
 

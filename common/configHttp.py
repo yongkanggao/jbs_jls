@@ -22,11 +22,11 @@ class RunMain():
         result = None
         if method == 'post':
             result = self.send_post(url, data)
-            logger.info(str(result))
+            # logger.info(str(result))
         elif method == 'get':
             result = self.send_get(url, data)
             #data = json.loads(result.text)
-            logger.info(str(result))
+            # logger.info(str(result))
         else:
             print("method值错误！！！")
             logger.info("method值错误！！！")
