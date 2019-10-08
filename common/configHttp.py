@@ -7,7 +7,8 @@ class RunMain():
 
     def send_post(self, url, data):# 定义一个方法，传入需要的参数url和data
         # 参数必须按照url、data顺序传入
-        result = requests.post(url=url, data=data).json()# 因为这里要封装post方法，所以这里的url和data值不能写死
+        headers = {'Content-Type':'application/json'}
+        result = requests.post(url=url, headers=headers,data=data)# 因为这里要封装post方法，所以这里的url和data值不能写死
         # data = json.loads(result.text)
         # res = json.dumps(data, ensure_ascii=False, sort_keys=True, indent=1)
         return result

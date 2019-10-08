@@ -10,7 +10,7 @@ from common import geturlParams, readExcel
 from common.Log import logger
 
 logger = logger
-url = geturlParams.geturlParams().get_Url()# 调用我们的geturlParams获取我们拼接的URL
+url = geturlParams.geturlParams().get_Url()
 taskList_xls = readExcel.readExcel().get_xls('case.xlsx','tasklist')
 
 @paramunittest.parametrized(*taskList_xls)
@@ -47,7 +47,7 @@ class testTaskList(unittest.TestCase):
         check test report
         :return:
         """
-        get_url = url +self.path
+        get_url = url + self.path
         req = RunMain().run_main(self.method, get_url, self.query)# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
         data = json.loads(req.text)
         res = json.dumps(data,ensure_ascii=False,indent=1)
