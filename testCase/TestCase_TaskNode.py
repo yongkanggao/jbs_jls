@@ -14,7 +14,7 @@ url = geturlParams.geturlParams().get_Url()
 taskNode_xls = readExcel.readExcel().get_xls('case.xlsx','tasknode')
 
 @paramunittest.parametrized(*taskNode_xls)
-class testTaskList(unittest.TestCase):
+class testTaskNode(unittest.TestCase):
     """
     任务流程！
     """

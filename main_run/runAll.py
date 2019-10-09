@@ -69,7 +69,7 @@ class AllTest:#定义一个类AllTest
             print(str(suit))
             if suit is not None:#判断test_suite是否为空
                 print('if-suit')
-                fp = open(resultPath, 'wb')#打开result/20181108/report.html测试报告文件，如果不存在就创建
+                fp = open(resultPath, 'wb')#打开report/report.html测试报告文件，如果不存在就创建
                 #调用HTMLTestRunner
                 runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Test Report', description='Test Description')
                 runner.run(suit)

@@ -4,20 +4,51 @@
 
 import unittest
 import json
-from common import geturlParams
+import paramunittest
+from common import geturlParams,readExcel
 from common.configHttp import RunMain
 from common import getmySql
 from common.Log import logger
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
+Deltask_xls = readExcel.readExcel().get_xls('case.xlsx','deletetask')
 cur = getmySql.getmySql().get_MySql()
 cu = cur.cursor()
 
+@paramunittest.parametrized(*Deltask_xls)
 class testDelTask(unittest.TestCase):
-    def test_del_saved(self):
-        "删除保存的任务"
-        cu.execute("select uuid from task where title = '家里事任务流程_保存任务';")
+    """
+    删除任务
+    """
+
+    def setParameters(self, case_name, path, query, method, sql):
+        """
+        set params
+        :param case_name:
+        :param path
+        :param query
+        :param method
+        :return:
+        """
+        self.case_name = str(case_name)
+        self.path = str(path)
+        self.query = str(query)
+        self.method = str(method)
+        self.sql = str(sql)
+
+    def setUp(self):
+        """
+
+        :return:
+        """
+        print(self.case_name + ":\n测试开始前准备")
+
+    def tearDown(self):
+        print("测试结束，输出log完结\n\n")
+
+    def test_checkResult(self):
+        cu.execute(self.sql)
         data = cu.fetchall()
         # print(len(data[0][0]))
         if len(data[0][0]) != 0:
@@ -26,10 +57,8 @@ class testDelTask(unittest.TestCase):
             print("没有查到数据")
         cu.close()
 
-        get_url = url + "/tasks/" + dat + "/delete"
-        # print(get_url)
-        data1 = {"user_id":"130751354"}
-        req = RunMain().run_main('post',get_url,data1)
+        get_url = url + "/tasks/" + dat + self.path
+        req = RunMain().run_main(self.method,get_url,self.query)
         da = json.loads(req.text)
         res = json.dumps(da,ensure_ascii=False,indent=1)
         self.assertEqual(req.status_code,200)
@@ -37,6 +66,7 @@ class testDelTask(unittest.TestCase):
         self.assertEqual(da['msg'],'success')
 
         logger.info(req)
+        logger.info(str(self.case_name))
         logger.info(da)
         # print(res)
         return res
