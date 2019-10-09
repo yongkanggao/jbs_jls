@@ -18,7 +18,7 @@ class testTaskList(unittest.TestCase):
     """
     任务列表！
     """
-    def setParameters(self, case_name, path, query, method):
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,data1,data2):
         """
         set params
         :param case_name:
@@ -31,6 +31,11 @@ class testTaskList(unittest.TestCase):
         self.path = str(path)
         self.query = str(query)
         self.method = str(method)
+        self.status_code = int(status_code)
+        self.code = str(code)
+        self.msg = str(msg)
+        self.data1 = str(data1)
+        self.data2 = str(data2)
 
     def setUp(self):
         """
@@ -52,59 +57,11 @@ class testTaskList(unittest.TestCase):
         data = json.loads(req.text)
         res = json.dumps(data,ensure_ascii=False,indent=1)
 
-#进行中的任务列表的校验
-        if self.case_name == "进行中任务列表显示":
-            self.assertEqual(req.status_code,200)
-            self.assertEqual(data['code'],"Joybos.2112")
-            self.assertEqual(data['msg'],'success')
-            self.assertLessEqual(data['data']['list'][0]['end_date'],data['data']['list'][1]['end_date'])
-        if self.case_name == "进行中任务筛选_标题":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertLessEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "进行中任务筛选_角色":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertLessEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "进行中任务筛选_进度":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertLessEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "进行中任务筛选_时间":
-            self.assertEqual(req.status_code,200)
-            self.assertEqual(data['code'],"Joybos.2112")
-            self.assertEqual(data['msg'],'success')
-            self.assertLessEqual(data['data']['list'][0]['end_date'],data['data']['list'][1]['end_date'])
+        self.assertEqual(req.status_code,self.status_code)
+        self.assertEqual(data['code'], self.code)
+        self.assertEqual(data['msg'],self.msg)
+        self.assertLessEqual(eval(self.data1),eval(self.data2))  #去除字符的双引号，断言
 
-#已完成任务列表的校验
-        if self.case_name == "已完成任务列表显示":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertGreaterEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "已完成任务筛选_标题":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertGreaterEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "已完成任务筛选_角色":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertGreaterEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "已完成任务筛选_进度":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertGreaterEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
-        if self.case_name == "已完成任务筛选_时间":
-            self.assertEqual(req.status_code, 200)
-            self.assertEqual(data['code'], "Joybos.2112")
-            self.assertEqual(data['msg'], 'success')
-            self.assertGreaterEqual(data['data']['list'][0]['end_date'], data['data']['list'][1]['end_date'])
 
         logger.info(req)
         logger.info(str(self.case_name))
