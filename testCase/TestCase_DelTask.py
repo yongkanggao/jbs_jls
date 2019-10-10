@@ -42,7 +42,7 @@ class testDelTask(unittest.TestCase):
 
         :return:
         """
-        print(self.case_name + ":\n测试开始前准备")
+        print("\n" + self.case_name + ":\n\n测试开始前准备")
 
     def tearDown(self):
         print("测试结束，输出log完结\n\n")
@@ -52,12 +52,12 @@ class testDelTask(unittest.TestCase):
         data = cu.fetchall()
         # print(len(data[0][0]))
         if len(data[0][0]) != 0:
-            dat = data[0][0]
+            task_id = data[0][0]
         else:
             print("没有查到数据")
-        cu.close()
+        # cu.close()
 
-        get_url = url + "/tasks/" + dat + self.path
+        get_url = url + "/tasks/" + task_id + self.path
         req = RunMain().run_main(self.method,get_url,self.query)
         da = json.loads(req.text)
         res = json.dumps(da,ensure_ascii=False,indent=1)

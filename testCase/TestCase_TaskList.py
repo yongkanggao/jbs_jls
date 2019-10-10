@@ -42,7 +42,7 @@ class testTaskList(unittest.TestCase):
 
         :return:
         """
-        print(self.case_name + ":\n测试开始前准备")
+        print("\n" + self.case_name + ":\n\n测试开始前准备")
 
     def tearDown(self):
         print("测试结束，输出log完结\n\n")

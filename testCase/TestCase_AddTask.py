@@ -1,29 +1,24 @@
 #coding=utf-8
 #author_="bruce.gao"
-#date:2019/10/10 16:11
+#date:2019/10/8 14:38
 
-
-import unittest
 import json
-import paramunittest
-from common import geturlParams,readExcel
+import unittest
 from common.configHttp import RunMain
-from common import getmySql
+import paramunittest
+from common import geturlParams, readExcel
 from common.Log import logger
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
-TaskNode_xls = readExcel.readExcel().get_xls('case.xlsx','tasknode')
-cur = getmySql.getmySql().get_MySql()
-cu = cur.cursor()
+addTask_xls = readExcel.readExcel().get_xls('case.xlsx','addtask')
 
-@paramunittest.parametrized(*TaskNode_xls)
-class testTaskNode(unittest.TestCase):
+@paramunittest.parametrized(*addTask_xls)
+class testAddTask(unittest.TestCase):
     """
-    任务流程
+    任务流程！
     """
-
-    def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql):
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,title):
         """
         set params
         :param case_name:
@@ -39,8 +34,7 @@ class testTaskNode(unittest.TestCase):
         self.status_code = int(status_code)
         self.code = str(code)
         self.msg = str(msg)
-        self.commit = str(commit)
-        self.sql = str(sql)
+        self.title = str(title)
 
     def setUp(self):
         """
@@ -53,29 +47,25 @@ class testTaskNode(unittest.TestCase):
         print("测试结束，输出log完结\n\n")
 
     def test_checkResult(self):
-        cu.execute(self.sql)
-        da = cu.fetchall()
-        # print(len(data[0][0]))
-        if len(da[0][0]) != 0:
-            task_id = da[0][0]
-        else:
-            print("没有查到数据")
-        # cu.close()
-
-        get_url = url + "/tasks/" + task_id + self.path
-        req = RunMain().run_main(self.method,get_url,self.query.encode('utf-8'))
+        """
+        check test report
+        :return:
+        """
+        get_url = url + self.path
+        req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
         data = json.loads(req.text)
-        res = json.dumps(da,ensure_ascii=False,indent=1)
+        res = json.dumps(data,ensure_ascii=False,indent=1)
+
         self.assertEqual(req.status_code,self.status_code)
         self.assertEqual(data['code'],self.code)
         self.assertEqual(data['msg'],self.msg)
-        self.assertEqual(data['data']['commit'],self.commit)
+        self.assertEqual(data['data']['title'],self.title)
 
         logger.info(req)
         logger.info(str(self.case_name))
         logger.info(data)
         # print(res)
-        return res
+        return  res
 
 if __name__ == '__main__':
     unittest.main()
