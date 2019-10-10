@@ -16,7 +16,7 @@ addTask_xls = readExcel.readExcel().get_xls('case.xlsx','addtask')
 @paramunittest.parametrized(*addTask_xls)
 class testAddTask(unittest.TestCase):
     """
-    任务流程！
+    添加任务
     """
     def setParameters(self,case_name,path,query,method,status_code,code,msg,title):
         """

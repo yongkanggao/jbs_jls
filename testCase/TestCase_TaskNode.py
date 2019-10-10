@@ -20,7 +20,7 @@ cu = cur.cursor()
 @paramunittest.parametrized(*TaskNode_xls)
 class testTaskNode(unittest.TestCase):
     """
-    任务流程
+    任务流程！
     """
 
     def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql):

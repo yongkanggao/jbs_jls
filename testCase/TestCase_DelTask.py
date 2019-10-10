@@ -19,7 +19,7 @@ cu = cur.cursor()
 @paramunittest.parametrized(*Deltask_xls)
 class testDelTask(unittest.TestCase):
     """
-    删除任务
+    删除任务！
     """
 
     def setParameters(self, case_name, path, query, method, sql):
@@ -49,25 +49,25 @@ class testDelTask(unittest.TestCase):
 
     def test_checkResult(self):
         cu.execute(self.sql)
-        data = cu.fetchall()
+        da = cu.fetchall()
         # print(len(data[0][0]))
-        if len(data[0][0]) != 0:
-            task_id = data[0][0]
+        if len(da[0][0]) != 0:
+            task_id = da[0][0]
         else:
             print("没有查到数据")
         # cu.close()
 
         get_url = url + "/tasks/" + task_id + self.path
         req = RunMain().run_main(self.method,get_url,self.query)
-        da = json.loads(req.text)
+        data = json.loads(req.text)
         res = json.dumps(da,ensure_ascii=False,indent=1)
         self.assertEqual(req.status_code,200)
-        self.assertEqual(da['code'],'Joybos.2112')
-        self.assertEqual(da['msg'],'success')
+        self.assertEqual(data['code'],'Joybos.2112')
+        self.assertEqual(data['msg'],'success')
 
         logger.info(req)
         logger.info(str(self.case_name))
-        logger.info(da)
+        logger.info(data)
         # print(res)
         return res
 
