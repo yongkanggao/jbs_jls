@@ -10,6 +10,7 @@ from common import geturlParams,readExcel
 from common.configHttp import RunMain
 from common import getmySql
 from common.Log import logger
+import time
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
@@ -23,7 +24,7 @@ class testTaskNode(unittest.TestCase):
     任务流程！
     """
 
-    def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql):
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql,status,reliys,comment,task_node,tasknodenum):
         """
         set params
         :param case_name:
@@ -41,6 +42,11 @@ class testTaskNode(unittest.TestCase):
         self.msg = str(msg)
         self.commit = str(commit)
         self.sql = str(sql)
+        self.status = status
+        self.reliys = str(reliys)
+        self.comment = str(comment)
+        self.task_node = str(task_node)
+        self.tasknodenum = tasknodenum
 
     def setUp(self):
         """
@@ -62,14 +68,29 @@ class testTaskNode(unittest.TestCase):
             print("没有查到数据")
         # cu.close()
 
-        get_url = url + "/tasks/" + task_id + self.path
-        req = RunMain().run_main(self.method,get_url,self.query.encode('utf-8'))
-        data = json.loads(req.text)
-        res = json.dumps(da,ensure_ascii=False,indent=1)
-        self.assertEqual(req.status_code,self.status_code)
-        self.assertEqual(data['code'],self.code)
-        self.assertEqual(data['msg'],self.msg)
-        self.assertEqual(data['data']['commit'],self.commit)
+        if self.case_name == "任务详情":
+            get_url = url + self.path + "/" + task_id
+            req = RunMain().run_main(self.method, get_url, self.query)
+            data = json.loads(req.text)
+            res = json.dumps(da, ensure_ascii=False, indent=1)
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            self.assertEqual(data['data']['status'], self.status)
+            self.assertEqual(eval(self.reliys), self.comment)
+            self.assertEqual(eval(self.task_node), self.tasknodenum)
+            time.sleep(1)
+
+        else:
+            get_url = url + "/tasks/" + task_id + self.path
+            req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))
+            data = json.loads(req.text)
+            res = json.dumps(da, ensure_ascii=False, indent=1)
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            self.assertEqual(data['data']['commit'], self.commit)
+            time.sleep(1)
 
         logger.info(req)
         logger.info(str(self.case_name))
