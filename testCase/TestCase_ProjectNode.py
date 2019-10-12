@@ -1,7 +1,6 @@
 #coding=utf-8
 #author_="bruce.gao"
-#date:2019/10/10 16:11
-
+#date:2019/10/12 12:22
 
 import unittest
 import json
@@ -10,21 +9,20 @@ from common import geturlParams,readExcel
 from common.configHttp import RunMain
 from common import getmySql
 from common.Log import logger
-import time
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
-TaskNode_xls = readExcel.readExcel().get_xls('case.xlsx','tasknode')
+ProjectNode_xls = readExcel.readExcel().get_xls('case.xlsx','projectnode')
 cur = getmySql.getmySql().get_MySql()
 cu = cur.cursor()
 
-@paramunittest.parametrized(*TaskNode_xls)
-class testTaskNode(unittest.TestCase):
+@paramunittest.parametrized(*ProjectNode_xls)
+class testProjectNode(unittest.TestCase):
     """
-    任务流程！
+    项目流程！
     """
 
-    def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql,status,reliys,comment,task_node,tasknodenum):
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,sql,title,category):
         """
         set params
         :param case_name:
@@ -40,13 +38,9 @@ class testTaskNode(unittest.TestCase):
         self.status_code = int(status_code)
         self.code = str(code)
         self.msg = str(msg)
-        self.commit = str(commit)
         self.sql = str(sql)
-        self.status = status
-        self.reliys = str(reliys)
-        self.comment = str(comment)
-        self.task_node = str(task_node)
-        self.tasknodenum = tasknodenum
+        self.title = str(title)
+        self.category = category
 
     def setUp(self):
         """
@@ -61,42 +55,37 @@ class testTaskNode(unittest.TestCase):
     def test_checkResult(self):
         cu.execute(self.sql)
         da = cu.fetchall()
-        # print(len(data[0][0]))
-        if len(da[0][0]) != 0:
-            task_id = da[0][0]
-        else:
-            print("没有查到数据")
-        # cu.close()
 
-        if self.case_name == "任务详情":
-            get_url = url + self.path + "/" + task_id
+        if self.case_name == "项目详情":
+            project_id = da[0][0]
+            get_url = url + self.path + "?id=" + project_id
+            req = RunMain().run_main(self.method, get_url,self.query)
+            data = json.loads(req.text)
+            res = json.dumps(data, ensure_ascii=False, indent=1)
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            self.assertEqual(data['data']['taskEntity']['title'],self.title)
+
+        elif self.case_name == "任务详情":
+            task_id1 = da[0][0]
+            category_id = da[1][0]
+            get_url = url + self.path + "/" + task_id1
             req = RunMain().run_main(self.method, get_url, self.query)
             data = json.loads(req.text)
             res = json.dumps(da, ensure_ascii=False, indent=1)
             self.assertEqual(req.status_code, self.status_code)
             self.assertEqual(data['code'], self.code)
             self.assertEqual(data['msg'], self.msg)
-            self.assertEqual(data['data']['status'], self.status)
-            self.assertEqual(eval(self.reliys), self.comment)
-            self.assertEqual(eval(self.task_node), self.tasknodenum)
-            time.sleep(1)
-
-        else:
-            get_url = url + "/tasks/" + task_id + self.path
-            req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))
-            data = json.loads(req.text)
-            res = json.dumps(da, ensure_ascii=False, indent=1)
-            self.assertEqual(req.status_code, self.status_code)
-            self.assertEqual(data['code'], self.code)
-            self.assertEqual(data['msg'], self.msg)
-            self.assertEqual(data['data']['commit'], self.commit)
-            time.sleep(1)
+            self.assertEqual(float(category_id), self.category)
+            self.assertEqual(data['data']['title'],self.title)
 
         logger.info(req)
         logger.info(str(self.case_name))
         logger.info(data)
         # print(res)
         return res
+
 
 if __name__ == '__main__':
     unittest.main()

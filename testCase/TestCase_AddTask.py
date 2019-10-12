@@ -41,10 +41,10 @@ class testAddTask(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n")
 
     def tearDown(self):
-        print("测试结束，输出log完结\n\n")
+        print("测试结束\n输出log\n完结!\n\n")
 
     def test_checkResult(self):
         """

@@ -1,6 +1,6 @@
 #coding=utf-8
 #author_="bruce.gao"
-#date:2019/10/8 17:20
+#date:2019/10/12 9:27
 
 import unittest
 import json
@@ -12,12 +12,12 @@ from common.Log import logger
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
-Deltask_xls = readExcel.readExcel().get_xls('case.xlsx','deletetask')
+Delproject_xls = readExcel.readExcel().get_xls('case.xlsx','deleteproject')
 cur = getmySql.getmySql().get_MySql()
 cu = cur.cursor()
 
-@paramunittest.parametrized(*Deltask_xls)
-class testDelTask(unittest.TestCase):
+@paramunittest.parametrized(*Delproject_xls)
+class testDelProject(unittest.TestCase):
     """
     删除任务！
     """
@@ -55,19 +55,19 @@ class testDelTask(unittest.TestCase):
         da = cu.fetchall()
         # print(len(data[0][0]))
         if len(da[0][0]) != 0:
-            task_id = da[0][0]
+            project_id = da[0][0]
         else:
             print("没有查到数据")
         # cu.close()
 
-        get_url = url + "/tasks/" + task_id + self.path
-        req = RunMain().run_main(self.method,get_url,self.query)
+        get_url = url + self.path
+        get_query = json.dumps(dict(eval(self.query)))
+        req = RunMain().run_main(self.method,get_url,get_query.encode('utf-8'))
         data = json.loads(req.text)
         res = json.dumps(da,ensure_ascii=False,indent=1)
-        self.assertEqual(req.status_code,self.status_code)
-        self.assertEqual(data['code'],self.code)
-        self.assertEqual(data['msg'],self.msg)
-        self.assertEqual(data['data'],task_id)
+        self.assertEqual(req.status_code, self.status_code)
+        self.assertEqual(data['code'], self.code)
+        self.assertEqual(data['msg'], self.msg)
 
         logger.info(req)
         logger.info(str(self.case_name))

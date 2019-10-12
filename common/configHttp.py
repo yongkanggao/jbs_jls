@@ -3,18 +3,19 @@ import json
 from common.Log import logger
 
 logger = logger
+webtoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqVXNlciI6eyJuaWNrIjoi546L5p6rIiwib3BlbmlkIjpudWxsLCJ1bmlvbmlkIjoidVJOYkc3ZVhDUmVVVVlZMjN4MHlxUWlFaUUiLCJ1c2VyaWQiOiIxNTUxMDU0ODU4MDgwMTY2NSIsInVzZXJJbWciOiJodHRwczovL3N0YXRpYy1sZWdhY3kuZGluZ3RhbGsuY29tL21lZGlhL2xBRFBEZ1E5cWdwU3FmYk5DUkROQ1F3XzIzMTZfMjMyMC5qcGciLCJ3ZWJUb2tlbiI6bnVsbCwidXNlcmluZm8iOm51bGwsInVzZXJNZW51IjpudWxsfSwiaXNzIjoiZHdhcGl1c2VyIiwiZXhwIjoxNTcwODgwODczLCJuYmYiOjE1NzA3OTQ0NzN9.jB2loxIht4rzs-7x_RsUAKXfT9EpoN6Abgy_R433tV8'
 class RunMain():
 
     def send_post(self, url, data):# 定义一个方法，传入需要的参数url和data
         # 参数必须按照url、data顺序传入
-        headers = {'Content-Type':'application/json','webtoken':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqVXNlciI6eyJuaWNrIjoi546L5p6rIiwib3BlbmlkIjpudWxsLCJ1bmlvbmlkIjoidVJOYkc3ZVhDUmVVVVlZMjN4MHlxUWlFaUUiLCJ1c2VyaWQiOiIxNTUxMDU0ODU4MDgwMTY2NSIsInVzZXJJbWciOiJodHRwczovL3N0YXRpYy1sZWdhY3kuZGluZ3RhbGsuY29tL21lZGlhL2xBRFBEZ1E5cWdwU3FmYk5DUkROQ1F3XzIzMTZfMjMyMC5qcGciLCJ3ZWJUb2tlbiI6bnVsbCwidXNlcmluZm8iOm51bGwsInVzZXJNZW51IjpudWxsfSwiaXNzIjoiZHdhcGl1c2VyIiwiZXhwIjoxNTcwNzk0MTEzLCJuYmYiOjE1NzA3MDc3MTN9.NPzTKEhyPqq1fefFYgtxgqDj715pM8_ySCQ8gPSwi8g'}
+        headers = {'Content-Type':'application/json','webtoken': webtoken}
         result = requests.post(url=url, headers=headers,data=data)# 因为这里要封装post方法，所以这里的url和data值不能写死
         # data = json.loads(result.text)
         # res = json.dumps(data, ensure_ascii=False, sort_keys=True, indent=1)
         return result
 
     def send_get(self, url, data):
-        headers = {'webtoken':'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqVXNlciI6eyJuaWNrIjoi546L5p6rIiwib3BlbmlkIjpudWxsLCJ1bmlvbmlkIjoidVJOYkc3ZVhDUmVVVVlZMjN4MHlxUWlFaUUiLCJ1c2VyaWQiOiIxNTUxMDU0ODU4MDgwMTY2NSIsInVzZXJJbWciOiJodHRwczovL3N0YXRpYy1sZWdhY3kuZGluZ3RhbGsuY29tL21lZGlhL2xBRFBEZ1E5cWdwU3FmYk5DUkROQ1F3XzIzMTZfMjMyMC5qcGciLCJ3ZWJUb2tlbiI6bnVsbCwidXNlcmluZm8iOm51bGwsInVzZXJNZW51IjpudWxsfSwiaXNzIjoiZHdhcGl1c2VyIiwiZXhwIjoxNTcwNzk0MTEzLCJuYmYiOjE1NzA3MDc3MTN9.NPzTKEhyPqq1fefFYgtxgqDj715pM8_ySCQ8gPSwi8g'}
+        headers = {'webtoken': webtoken}
         result = requests.get(url=url,headers=headers,params=data)
         # data = json.loads(result.text)
         # res = json.dumps(data, ensure_ascii=False, sort_keys=True, indent=1)

@@ -1,24 +1,28 @@
 #coding=utf-8
 #author_="bruce.gao"
-#date:2019/9/27 14:59
+#date:2019/10/11 19:13
 
-import json
 import unittest
-from common.configHttp import RunMain
+import json
 import paramunittest
-from common import geturlParams, readExcel
+from common import geturlParams,readExcel
+from common.configHttp import RunMain
+from common import getmySql
 from common.Log import logger
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
-taskList_xls = readExcel.readExcel().get_xls('case.xlsx','tasklist')
+addProject_xls = readExcel.readExcel().get_xls('case.xlsx','addproject')
+cur = getmySql.getmySql().get_MySql()
+cu = cur.cursor()
 
-@paramunittest.parametrized(*taskList_xls)
-class testTaskList(unittest.TestCase):
+@paramunittest.parametrized(*addProject_xls)
+class testAddProject(unittest.TestCase):
     """
-    任务列表！
+    新增项目！
     """
-    def setParameters(self,case_name,path,query,method,status_code,code,msg,data1,data2):
+
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,sql):
         """
         set params
         :param case_name:
@@ -34,8 +38,7 @@ class testTaskList(unittest.TestCase):
         self.status_code = int(status_code)
         self.code = str(code)
         self.msg = str(msg)
-        self.data1 = str(data1)
-        self.data2 = str(data2)
+        self.sql = str(sql)
 
     def setUp(self):
         """
@@ -48,27 +51,26 @@ class testTaskList(unittest.TestCase):
         print("测试结束\n输出log\n完结!\n\n")
 
     def test_checkResult(self):
-        """
-        check test report
-        :return:
-        """
+        cu.execute(self.sql)
+        da = cu.fetchall()
+
+        task_id1 = da[0][0]
+        task_id2 = da[1][0]
         get_url = url + self.path
-        req = RunMain().run_main(self.method, get_url, self.query)# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
+        get_query = json.dumps(dict(eval(self.query)))
+        req = RunMain().run_main(self.method, get_url, get_query.encode('utf-8'))
         data = json.loads(req.text)
-        res = json.dumps(data,ensure_ascii=False,indent=1)
-
-        self.assertEqual(req.status_code,self.status_code)
+        res = json.dumps(data, ensure_ascii=False, indent=1)
+        self.assertEqual(req.status_code, self.status_code)
         self.assertEqual(data['code'], self.code)
-        self.assertEqual(data['msg'],self.msg)
-        self.assertLessEqual(eval(self.data1),eval(self.data2))  #去除字符的双引号，断言
-
+        self.assertEqual(data['msg'], self.msg)
 
         logger.info(req)
         logger.info(str(self.case_name))
         logger.info(data)
-        #print(res)
-        return  res
+        # print(res)
+        return res
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
