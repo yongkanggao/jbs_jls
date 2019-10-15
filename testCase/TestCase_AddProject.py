@@ -45,7 +45,7 @@ class testAddProject(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -61,6 +61,8 @@ class testAddProject(unittest.TestCase):
         req = RunMain().run_main(self.method, get_url, get_query.encode('utf-8'))
         data = json.loads(req.text)
         res = json.dumps(data, ensure_ascii=False, indent=1)
+        print(res)
+
         self.assertEqual(req.status_code, self.status_code)
         self.assertEqual(data['code'], self.code)
         self.assertEqual(data['msg'], self.msg)
@@ -68,7 +70,6 @@ class testAddProject(unittest.TestCase):
         logger.info(req)
         logger.info(str(self.case_name))
         logger.info(data)
-        # print(res)
         return res
 
 
