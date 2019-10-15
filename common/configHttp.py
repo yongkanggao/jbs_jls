@@ -1,9 +1,10 @@
 import requests
 import json
 from common.Log import logger
+from common import readConfig
 
 logger = logger
-webtoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqVXNlciI6eyJuaWNrIjoi6auY5rC45bq3Iiwib3BlbmlkIjpudWxsLCJ1bmlvbmlkIjoieVdWZHFIdGRST0V2QUliNndjclFsQWlFaUUiLCJ1c2VyaWQiOiIxMzA3NTEzNTQiLCJ1c2VySW1nIjoiaHR0cHM6Ly9zdGF0aWMtbGVnYWN5LmRpbmd0YWxrLmNvbS9tZWRpYS9sQURQRGdROXJBXzNqOVBOQXZETkF1NF83NTBfNzUyLmpwZyIsIndlYlRva2VuIjpudWxsLCJ1c2VyaW5mbyI6bnVsbCwidXNlck1lbnUiOm51bGx9LCJpc3MiOiJkd2FwaXVzZXIiLCJleHAiOjE1NzExODg3OTksIm5iZiI6MTU3MTEwMjM5OX0.D1oyqYldfHPEs7KXhlfPZhnjOYAa2lJYiA-PuCO6kvE'
+webtoken = readConfig.ReadConfig().get_header('webtoken')
 class RunMain():
 
     def send_post(self, url, data):# 定义一个方法，传入需要的参数url和data

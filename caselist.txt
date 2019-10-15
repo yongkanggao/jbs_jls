@@ -3,6 +3,7 @@ task/TestCase_TaskNode
 task/TestCase_TaskList
 project/TestCase_AddProject
 project/TestCase_ProjectNode
+task/TestCase_Noteice
 task/TestCase_DelTask
 project/TestCase_DelProject
 

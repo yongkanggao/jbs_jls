@@ -19,7 +19,7 @@ cu = cur.cursor()
 @paramunittest.parametrized(*Delproject_xls)
 class testDelProject(unittest.TestCase):
     """
-    删除任务！
+    删除项目！
     """
 
     def setParameters(self,case_name,path,query,method,sql,status_code,code,msg):
