@@ -36,7 +36,7 @@ class testDelProject(unittest.TestCase):
         self.query = str(query)
         self.method = str(method)
         self.sql = str(sql)
-        self.status_code = int(status_code)
+        self.status_code = status_code
         self.code = str(code)
         self.msg = str(msg)
 
@@ -51,6 +51,10 @@ class testDelProject(unittest.TestCase):
         print("测试结束\n输出log\n完结!\n\n")
 
     def test_checkResult(self):
+        sq = """delete from tb_project_detail where p_id = (select uuid from task where title = "家里事新建项目测试");"""
+        cu.execute(sq)  #删除项目和任务关联数据
+        cur.commit()
+
         cu.execute(self.sql)
         da = cu.fetchall()
         # print(len(data[0][0]))
@@ -58,6 +62,7 @@ class testDelProject(unittest.TestCase):
             project_id = da[0][0]
         else:
             print("没有查到数据")
+
         # cu.close()
 
         get_url = url + self.path

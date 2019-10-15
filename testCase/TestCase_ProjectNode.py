@@ -9,6 +9,7 @@ from common import geturlParams,readExcel
 from common.configHttp import RunMain
 from common import getmySql
 from common.Log import logger
+import time
 
 logger = logger
 url = geturlParams.geturlParams().get_Url()
@@ -22,7 +23,7 @@ class testProjectNode(unittest.TestCase):
     项目流程！
     """
 
-    def setParameters(self,case_name,path,query,method,status_code,code,msg,sql,title,category):
+    def setParameters(self,case_name,path,query,method,status_code,code,msg,commit,sql,status,reliys,comment,task_node,tasknodenum,category,title):
         """
         set params
         :param case_name:
@@ -41,6 +42,12 @@ class testProjectNode(unittest.TestCase):
         self.sql = str(sql)
         self.title = str(title)
         self.category = category
+        self.status = status
+        self.reliys = str(reliys)
+        self.comment = str(comment)
+        self.task_node = str(task_node)
+        self.tasknodenum = tasknodenum
+        self.commit = str(commit)
 
     def setUp(self):
         """
@@ -67,7 +74,7 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(data['data']['taskEntity']['title'],self.title)
 
-        elif self.case_name == "任务详情":
+        elif self.case_name == "项目子任务详情":
             task_id1 = da[0][0]
             category_id = da[1][0]
             get_url = url + self.path + "/" + task_id1
@@ -79,6 +86,32 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(float(category_id), self.category)
             self.assertEqual(data['data']['title'],self.title)
+
+        elif self.case_name == "任务详情":
+            task_id = da[0][0]
+            get_url = url + self.path + "/" + task_id
+            req = RunMain().run_main(self.method, get_url, self.query)
+            data = json.loads(req.text)
+            res = json.dumps(da, ensure_ascii=False, indent=1)
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            self.assertEqual(data['data']['status'], self.status)
+            self.assertEqual(eval(self.reliys), self.comment)
+            self.assertEqual(eval(self.task_node), self.tasknodenum)
+            time.sleep(1)
+
+        else:
+            task_id = da[0][0]
+            get_url = url + "/tasks/" + task_id + self.path
+            req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))
+            data = json.loads(req.text)
+            res = json.dumps(da, ensure_ascii=False, indent=1)
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            self.assertEqual(data['data']['commit'], self.commit)
+            time.sleep(1)
 
         logger.info(req)
         logger.info(str(self.case_name))

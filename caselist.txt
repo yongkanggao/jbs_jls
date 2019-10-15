@@ -4,5 +4,5 @@ task/TestCase_TaskList
 project/TestCase_AddProject
 project/TestCase_ProjectNode
 task/TestCase_DelTask
-#project/TestCase_DelProject
+project/TestCase_DelProject
 
