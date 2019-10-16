@@ -1,9 +1,9 @@
 task/TestCase_AddTask
-#task/TestCase_TaskNode
-#project/TestCase_AddProject
-#project/TestCase_ProjectNode
-#task/TestCase_Noteice
-#task/TestCase_TaskList
-#task/TestCase_DelTask
-#project/TestCase_DelProject
+task/TestCase_TaskNode
+project/TestCase_AddProject
+project/TestCase_ProjectNode
+task/TestCase_Noteice
+task/TestCase_TaskList
+task/TestCase_DelTask
+project/TestCase_DelProject
 
