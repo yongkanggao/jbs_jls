@@ -191,9 +191,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-10-15 23:32:24</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:04.415452</p>
-<p class='attribute'><strong>Status:</strong> Pass 10</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-10-16 09:34:56</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.109679</p>
+<p class='attribute'><strong>Status:</strong> Failure 10</p>
 
 <p class='description'>Test Description</p>
 </div>
@@ -223,70 +223,72 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_0</td>
     <td>保存任务</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft1.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: 
+ft1.1: 
 保存任务:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试保存任务",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-20",
-  "content": "家里事任务流程_测试保存任务",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": null,
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试保存任务",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-20",
+	"type":"2",
+	"content":"家里事任务流程_测试保存任务",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试保存任务”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -296,70 +298,73 @@ pt1.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_1</td>
     <td>新建任务流程到审核被驳回</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
 </tr>
 
-<tr id='pt2.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft2.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        fail</a>
 
-    <div id='div_pt2.1' class="popup_window">
+    <div id='div_ft2.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt2.1: 
+ft2.1: 
 新建任务流程到审核被驳回:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试审核被驳回",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试审核被驳回",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试审核被驳回",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试审核被驳回",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试审核被驳回”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -369,70 +374,73 @@ pt2.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_2</td>
     <td>新建任务流程到已取消</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
 </tr>
 
-<tr id='pt3.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft3.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        fail</a>
 
-    <div id='div_pt3.1' class="popup_window">
+    <div id='div_ft3.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt3.1: 
+ft3.1: 
 新建任务流程到已取消:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试流程到已取消",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试流程到已取消",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试流程到已取消",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试流程到已取消",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试流程到已取消”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -442,70 +450,73 @@ pt3.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_3</td>
     <td>新建任务流程到已完成</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
 </tr>
 
-<tr id='pt4.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft4.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        fail</a>
 
-    <div id='div_pt4.1' class="popup_window">
+    <div id='div_ft4.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.1: 
+ft4.1: 
 新建任务流程到已完成:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试流程到已完成",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试流程到已完成",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试流程到已完成",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试流程到已完成",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试流程到已完成”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -515,70 +526,73 @@ pt4.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_4</td>
     <td>新建项目关联子任务1</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
 </tr>
 
-<tr id='pt5.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft5.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        fail</a>
 
-    <div id='div_pt5.1' class="popup_window">
+    <div id='div_ft5.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt5.1: 
+ft5.1: 
 新建项目关联子任务1:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试项目子任务1",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试项目子任务1",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试项目子任务1",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试项目子任务1",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试项目子任务1”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -588,70 +602,73 @@ pt5.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_5</td>
     <td>新建项目关联子任务2</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
 </tr>
 
-<tr id='pt6.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft6.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        fail</a>
 
-    <div id='div_pt6.1' class="popup_window">
+    <div id='div_ft6.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt6.1: 
+ft6.1: 
 新建项目关联子任务2:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试项目子任务2",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试项目子任务2",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试项目子任务2",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试项目子任务2",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试项目子任务2”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -661,70 +678,73 @@ pt6.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_6</td>
     <td>消息通知流程到已取消</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
 </tr>
 
-<tr id='pt7.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft7.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.1')" >
+        fail</a>
 
-    <div id='div_pt7.1' class="popup_window">
+    <div id='div_ft7.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft7.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt7.1: 
+ft7.1: 
 消息通知流程到已取消:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试消息通知流程到已取消",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试消息通知流程到已取消",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试消息通知流程到已取消",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试消息通知流程到已取消",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试消息通知流程到已取消”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -734,70 +754,73 @@ pt7.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_7</td>
     <td>消息通知流程到已完成</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
 </tr>
 
-<tr id='pt8.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft8.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.1')" >
+        fail</a>
 
-    <div id='div_pt8.1' class="popup_window">
+    <div id='div_ft8.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt8.1: 
+ft8.1: 
 消息通知流程到已完成:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试消息通知流程到已完成",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试消息通知流程到已完成",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试消息通知流程到已完成",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试消息通知流程到已完成",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试消息通知流程到已完成”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -807,70 +830,73 @@ pt8.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_8</td>
     <td>新建我的任务到执行中1</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
 </tr>
 
-<tr id='pt9.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft9.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.1')" >
+        fail</a>
 
-    <div id='div_pt9.1' class="popup_window">
+    <div id='div_ft9.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt9.1: 
+ft9.1: 
 新建我的任务到执行中1:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试流程到执行中1",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试流程到执行中1",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试流程到执行中1",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试流程到执行中1",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试流程到执行中1”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -880,70 +906,73 @@ pt9.1:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>paramunittest.testAddTask_9</td>
     <td>新建我的任务到执行中2</td>
     <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
 </tr>
 
-<tr id='pt10.1' class='hiddenRow'>
-    <td colspan='2' class='none'><div class='testcase'>test_checkResult</div></td>
+<tr id='ft10.1' class='none'>
+    <td colspan='2' class='failCase'><div class='testcase'>test_checkResult</div></td>
     <td colspan='7' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.1')" >
+        fail</a>
 
-    <div id='div_pt10.1' class="popup_window">
+    <div id='div_ft10.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt10.1: 
+ft10.1: 
 新建我的任务到执行中2:
 
 测试开始前准备
 
-接口返回数据：
+接口请求数据：
 
+url:http://192.168.1.210:10007/task/task
+query:
 {
- "code": "Joybos.2112",
- "msg": "success",
- "data": {
-  "uuid": null,
-  "flow_id": null,
-  "title": "家里事任务流程_测试流程到执行中2",
-  "type": 2,
-  "status": null,
-  "start_date": "2019-09-10",
-  "end_date": "2019-10-24",
-  "content": "家里事任务流程_测试流程到执行中2",
-  "result": "",
-  "creator": "130751354",
-  "auditor": "1342",
-  "executor": "15510548580801665",
-  "acceptor": "054155683935495559",
-  "audit": "1",
-  "nowNum": null,
-  "result_photo": "",
-  "result_file": "",
-  "project_id": null,
-  "target_photo": "",
-  "target_file": "",
-  "login_user": null
- }
+	"title":"家里事任务流程_测试流程到执行中2",
+	"start_date":"2019-09-10",
+	"end_date":"2019-10-24",
+	"type":"2",
+	"content":"家里事任务流程_测试流程到执行中2",
+	"creator":"130751354",
+	"auditor":"1342",
+	"executor":"15510548580801665",
+	"acceptor":"054155683935495559",
+	"audit":"1",
+	"result":"",
+	"result_file":"",
+	"result_photo":"",
+	"target_photo":"",
+	"target_file":""
 }
+
+接口返回数据:
+{
+ "code": "Joybos.635004",
+ "message": "任务名称“家里事任务流程_测试流程到执行中2”不能重复!"
+}
+
 测试结束
 输出log
 完结!
 
 
+Traceback (most recent call last):
+  File "D:\workspace\jbs_jls\testCase\TestCase_AddTask.py", line 61, in test_checkResult
+    self.assertEqual(req.status_code,self.status_code)
+AssertionError: 500 != 200
 
 
         </pre>
@@ -956,8 +985,8 @@ pt10.1:
 <tr id='total_row'>
     <td colspan='2'>Total</td>
     <td>10</td>
-    <td>10</td>
     <td>0</td>
+    <td>10</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

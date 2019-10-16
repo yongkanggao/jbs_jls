@@ -41,7 +41,7 @@ class testAddTask(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口请求数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -55,7 +55,8 @@ class testAddTask(unittest.TestCase):
         req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))# 根据Excel中的method调用run_main来进行requests请求，并拿到响应
         data = json.loads(req.text)
         res = json.dumps(data,ensure_ascii=False,indent=1)
-        print(res)
+        print("url:" + get_url + "\n" + "query:\n" + self.query)
+        print("\n接口返回数据:\n\n" + res + "\n")
 
         self.assertEqual(req.status_code,self.status_code)
         self.assertEqual(data['code'],self.code)
