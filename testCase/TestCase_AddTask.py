@@ -62,6 +62,8 @@ class testAddTask(unittest.TestCase):
         self.assertEqual(data['code'],self.code)
         self.assertEqual(data['msg'],self.msg)
         self.assertEqual(data['data']['title'],self.title)
+        print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['title']))
+        print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.title) + "\n")
 
         logger.info(req)
         logger.info(str(self.case_name))

@@ -42,7 +42,7 @@ class testTaskList(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口请求数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -63,6 +63,8 @@ class testTaskList(unittest.TestCase):
         self.assertEqual(data['code'], self.code)
         self.assertEqual(data['msg'],self.msg)
         self.assertLessEqual(eval(self.data1),eval(self.data2))  #去除字符的双引号，断言
+        print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']))
+        print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "\n")
 
 
         logger.info(req)

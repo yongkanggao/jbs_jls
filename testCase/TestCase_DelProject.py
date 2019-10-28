@@ -36,7 +36,7 @@ class testDelProject(unittest.TestCase):
         self.query = str(query)
         self.method = str(method)
         self.sql = str(sql)
-        self.status_code = status_code
+        self.status_code = int(status_code)
         self.code = str(code)
         self.msg = str(msg)
 
@@ -45,7 +45,7 @@ class testDelProject(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口请求数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -76,6 +76,8 @@ class testDelProject(unittest.TestCase):
         self.assertEqual(req.status_code, self.status_code)
         self.assertEqual(data['code'], self.code)
         self.assertEqual(data['msg'], self.msg)
+        print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']))
+        print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "\n")
 
         logger.info(req)
         logger.info(str(self.case_name))

@@ -53,7 +53,7 @@ class testTaskNode(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口请求数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -83,6 +83,26 @@ class testTaskNode(unittest.TestCase):
             self.assertEqual(eval(self.reliys), self.comment)
             self.assertEqual(eval(self.task_node), self.tasknodenum)
             time.sleep(1)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['status']) + "," + str(eval(self.reliys)) + "," + str(eval(self.task_node)))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.status) + "," + str(self.comment) + "," + str(self.tasknodenum) + "\n")
+
+        elif self.case_name.startswith("修改后"):
+            uuid = da[0][0]
+            flow_id = da[1][0]
+            get_url = url + self.path
+            get_query = json.dumps(dict(eval(self.query)))
+            req = RunMain().run_main(self.method, get_url, get_query.encode('utf-8'))
+            data = json.loads(req.text)
+            res = json.dumps(data, ensure_ascii=False, indent=1)
+            print("url:" + get_url + "\n" + "query:\n" + self.query)
+            print("\n接口返回数据:\n\n" + res + "\n")
+
+            self.assertEqual(req.status_code, self.status_code)
+            self.assertEqual(data['code'], self.code)
+            self.assertEqual(data['msg'], self.msg)
+            time.sleep(1)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "\n")
 
         else:
             get_url = url + "/tasks/" + task_id + self.path
@@ -97,6 +117,8 @@ class testTaskNode(unittest.TestCase):
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(data['data']['commit'], self.commit)
             time.sleep(1)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['commit']))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.commit) + "\n")
 
         logger.info(req)
         logger.info(str(self.case_name))

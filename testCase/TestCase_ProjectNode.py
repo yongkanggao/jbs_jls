@@ -54,7 +54,7 @@ class testProjectNode(unittest.TestCase):
 
         :return:
         """
-        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口返回数据：\n")
+        print("\n" + self.case_name + ":\n\n测试开始前准备\n\n" + "接口请求数据：\n")
 
     def tearDown(self):
         print("测试结束\n输出log\n完结!\n\n")
@@ -76,6 +76,8 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(data['code'], self.code)
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(data['data']['taskEntity']['title'],self.title)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['taskEntity']['title']))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.title) + "\n")
 
         elif self.case_name == "项目子任务详情":
             task_id1 = da[0][0]
@@ -92,6 +94,8 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(float(category_id), self.category)
             self.assertEqual(data['data']['title'],self.title)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(float(category_id)) + "," + str(data['data']['title']))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.category) + "," + str(self.title) + "\n")
 
         elif self.case_name == "项目子任务_任务详情":
             task_id = da[0][0]
@@ -109,6 +113,8 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(eval(self.reliys), self.comment)
             self.assertEqual(eval(self.task_node), self.tasknodenum)
             time.sleep(1)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['status']) + "," + str(eval(self.reliys)) + "," + str(eval(self.task_node)))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.status) + "," + str(self.comment) + "," + str(self.tasknodenum) + "\n")
 
         else:
             task_id = da[0][0]
@@ -124,6 +130,8 @@ class testProjectNode(unittest.TestCase):
             self.assertEqual(data['msg'], self.msg)
             self.assertEqual(data['data']['commit'], self.commit)
             time.sleep(1)
+            print("结果数据为：\n" + str(req.status_code) + "," + str(data['code']) + "," + str(data['msg']) + "," + str(data['data']['commit']))
+            print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "," + str(self.commit) + "\n")
 
         logger.info(req)
         logger.info(str(self.case_name))

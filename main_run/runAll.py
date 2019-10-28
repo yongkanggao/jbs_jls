@@ -81,7 +81,6 @@ class AllTest:#定义一个类AllTest
 
         finally:
             print("*********TEST END*********")
-            #log.info("*********TEST END*********")
             fp.close()
         #判断邮件发送的开关
         if on_off == 'on':
