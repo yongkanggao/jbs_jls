@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0801f5f1-326e-4731-9cf2-d186642a44a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/common/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_run/runAll.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_run/runAll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_AddProject.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_AddProject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_AddTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_AddTask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_DelProject.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_DelProject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_DelTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_DelTask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_Noteice.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_Noteice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_ProjectNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_ProjectNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_TaskList.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_TaskList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testCase/TestCase_TaskNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/testCase/TestCase_TaskNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testFile/case/case.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/testFile/case/case.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +41,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testCase/TestCase_AddTask.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="936">
@@ -127,18 +114,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main_run/runAll.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testCase/TestCase_TaskNode.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
@@ -162,13 +137,9 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="438" selection-start-line="32" selection-start-column="438" selection-end-line="32" selection-end-column="438" />
-            </state>
-          </provider>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/log/logs.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -213,7 +184,6 @@
         <option value="$PROJECT_DIR$/HTMLTestRunner.py" />
         <option value="$PROJECT_DIR$/common/HTMLTestRunner.py" />
         <option value="$PROJECT_DIR$/caselist.txt" />
-        <option value="$PROJECT_DIR$/log/logs.txt" />
         <option value="$PROJECT_DIR$/common/config.ini" />
         <option value="$PROJECT_DIR$/testCase/TestCase_AddTask.py" />
         <option value="$PROJECT_DIR$/main_run/runAll.py" />
@@ -224,6 +194,8 @@
         <option value="$PROJECT_DIR$/testCase/TestCase_ProjectNode.py" />
         <option value="$PROJECT_DIR$/testCase/TestCase_TaskList.py" />
         <option value="$PROJECT_DIR$/testCase/TestCase_TaskNode.py" />
+        <option value="$PROJECT_DIR$/log/logs.txt" />
+        <option value="$PROJECT_DIR$/log/logs.txt.2019-10-16" />
       </list>
     </option>
   </component>
@@ -248,7 +220,7 @@
             <path>
               <item name="jbs_jls" type="b2602c69:ProjectViewProjectNode" />
               <item name="jbs_jls" type="462c0819:PsiDirectoryNode" />
-              <item name="main_run" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jbs_jls" type="b2602c69:ProjectViewProjectNode" />
@@ -356,7 +328,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in TestCase_Noteice.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in TestCase_Notice.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="jbs_jls" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -367,7 +339,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/testCase/TestCase_Noteice.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/testCase/TestCase_Notice.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -392,7 +364,7 @@
         <item itemvalue="Python tests.Unittests in TestCase_DelTask.py" />
         <item itemvalue="Python tests.Unittests in TestCase_AddTask.py" />
         <item itemvalue="Python tests.Unittests in TestCase_TaskNode.py" />
-        <item itemvalue="Python tests.Unittests in TestCase_Noteice.py" />
+        <item itemvalue="Python tests.Unittests in TestCase_Notice.py" />
       </list>
     </recent_temporary>
   </component>
@@ -418,7 +390,7 @@
       <workItem from="1571657900564" duration="517000" />
       <workItem from="1571965069573" duration="70000" />
       <workItem from="1572054970728" duration="7691000" />
-      <workItem from="1572228994778" duration="8650000" />
+      <workItem from="1572228994778" duration="9304000" />
     </task>
     <servers />
   </component>
@@ -455,7 +427,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196206000" />
+    <option name="totallyTimeSpent" value="196860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -710,9 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/logs.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/config.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -809,6 +778,12 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/logs.txt.2019-10-16">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/logs.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
