@@ -62,13 +62,14 @@ class testTaskNode(unittest.TestCase):
         cu.execute(self.sql)
         da = cu.fetchall()
         # print(len(data[0][0]))
-        if len(da[0][0]) != 0:
-            task_id = da[0][0]
-        else:
-            print("没有查到数据")
-        # cu.close()
+        # if len(da[0][0]) != 0:
+
+        # else:
+        #     print("没有查到数据")
+        # # cu.close()
 
         if self.case_name == "任务详情":
+            task_id = da[0][0]
             get_url = url + self.path + "/" + task_id
             req = RunMain().run_main(self.method, get_url, self.query)
             data = json.loads(req.text)
@@ -105,6 +106,7 @@ class testTaskNode(unittest.TestCase):
             print("基线数据为：\n" + str(self.status_code) + "," + str(self.code) + "," + str(self.msg) + "\n")
 
         else:
+            task_id = da[0][0]
             get_url = url + "/tasks/" + task_id + self.path
             req = RunMain().run_main(self.method, get_url, self.query.encode('utf-8'))
             data = json.loads(req.text)
