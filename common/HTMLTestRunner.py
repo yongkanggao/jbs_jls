@@ -1,6 +1,6 @@
 """
 A TestRunner for use with the Python unit testing framework. It
-generates a HTML report to show the report at a glance.
+generates a HTML report to show the result at a glance.
 
 The simplest way to use this is to invoke its main method. E.g.
 
@@ -522,9 +522,9 @@ class _TestResult(TestResult):
         self.error_count = 0
         self.verbosity = verbosity
 
-        # report is a list of report in 4 tuple
+        # result is a list of result in 4 tuple
         # (
-        #   report code (0: success; 1: fail; 2: error),
+        #   result code (0: success; 1: fail; 2: error),
         #   TestCase object,
         #   Test output (byte string),
         #   stack trace,
@@ -619,7 +619,6 @@ class HTMLTestRunner(Template_mixin):
             self.description = description
 
         self.startTime = datetime.datetime.now()
-
 
     def run(self, test):
         "Run the given test case or test suite."
